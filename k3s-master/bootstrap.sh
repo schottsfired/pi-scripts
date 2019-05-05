@@ -1,3 +1,10 @@
+#!/bin/sh
+set -e
+
+#enable cgroups
+sed -i 's/rootwait/cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory rootwait/g' /boot/cmdline.txt
+
+#static IP address
 cat <<EOT >> /etc/dhcpcd.conf
 interface wlan0
 static ip_address=10.0.1.100/24
