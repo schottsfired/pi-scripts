@@ -2,9 +2,11 @@
 set -e
 
 #enable cgroups
+logger Enabling cgroups...
 sed -i 's/rootwait/cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory rootwait/g' /boot/cmdline.txt
 
 #static IP address
+logger Setting Static IP to 10.0.1.100 and Routher IP to 10.0.1.1...
 cat <<EOT >> /etc/dhcpcd.conf
 interface wlan0
 static ip_address=10.0.1.100/24
