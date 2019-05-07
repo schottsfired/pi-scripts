@@ -18,3 +18,9 @@ EOT
 
 logger Installing k3s...
 curl -sfL https://get.k3s.io | sh -
+echo 'alias k="k3s kubectl"' >> ~/.bash_profile
+
+logger Install MetalLB...
+kubectl apply -f https://raw.githubusercontent.com/danderson/metallb/master/manifests/metallb.yaml
+
+logger Install configmap for MetalLB...
