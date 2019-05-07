@@ -10,7 +10,7 @@ PiBakery (https://www.pibakery.org/) is used to automate the process of creating
 
 Here is my configuration:
 
-![Alt text](/images/pibakery-k3s-master?raw=true "PiBakery Configuration")
+![PiBakery Configuration](images/pibakery-k3s-master?raw=true "PiBakery Configuration")
   
 Long bash scripts do not work well in PiBakery, so it may be helpful to create a single **Run Command** to boot from GitHub:
 
