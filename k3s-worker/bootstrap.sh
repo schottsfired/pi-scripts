@@ -16,9 +16,12 @@ static routers=10.0.1.1
 static domain_name_servers=10.0.1.1
 EOT
 
-echo Installing 3.5 inch LCD screen (requires restart)
+echo Disabling GUI-based getting started wizard...
+rm /etc/xdg/autostart/piwiz.desktop
+
+echo Installing 3.5 inch LCD screen (requires restart)...
 git clone https://github.com/goodtft/LCD-show /home/pi/LCD-show
 cd /home/pi && source /home/pi/LCD-show/LCD35-show
 
-#Installing an agent to point at a server:
+#NODE_TOKEN comes from /var/lib/rancher/k3s/server/node-token on the master
 #sudo curl -sfL https://get.k3s.io | K3S_TOKEN=xxx K3S_URL=https://10.0.1.100:6443 sh -
