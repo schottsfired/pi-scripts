@@ -18,7 +18,7 @@ EOT
 
 echo Installing k3s...
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy=servicelb" sh -
-echo 'alias k="k3s kubectl"' >> ~/.bash_profile
+echo 'alias k="k3s kubectl"' >> /home/pi/.bash_profile
 
 echo Waiting for kubectl to be ready...
 until kubectl
