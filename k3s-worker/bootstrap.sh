@@ -15,3 +15,6 @@ static ip_address=10.0.1.101/24
 static routers=10.0.1.1
 static domain_name_servers=10.0.1.1
 EOT
+
+#Installing an agent to point at a server:
+#sudo curl -sfL https://get.k3s.io | K3S_TOKEN=xxx K3S_URL=https://10.0.1.100:6443 sh -
