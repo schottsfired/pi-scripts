@@ -8,15 +8,13 @@ The scripts in this repo are used to automate the installation of http://k3s.io 
 
 PiBakery (https://github.com/davidferguson/pibakery/releases) is used to automate the process of creating custom boot images. This allows you to create a fully automated headless setup. Just plug in your pi and log in a few minutes later!
 
-Here is my configuration:
+Sample configuration:
 
 ![PiBakery Configuration](images/pibakery-k3s-master.png?raw=true "PiBakery Configuration")
   
-It may be helpful to create a single **Run Command** to boot from GitHub:
+It is useful to create a single **Run Command** to boot from GitHub:
 
 `curl -sfL https://raw.githubusercontent.com/schottsfired/pi-scripts/master/k3s-master/bootstrap.sh | sh -`
-
-This lets you modify your boot script more freely, without any changes to PiBakery.
 
 ### Logs
 
@@ -24,9 +22,9 @@ PiBakery logs are located at `/boot/PiBakery/firstboot.log`.
 
 ### SSH
 
-SSH is disabled by default in newer versions of Raspbian. To enable it, open your Raspian `.img` file and create an `ssh` file at the root of the disk image. This can be done in one command with `cd /Volumes/boot && touch ssh`.
+SSH is disabled by default in newer versions of Raspbian. To enable it, open your Raspian `.img` file and create an `ssh` file at the root of the disk image. This can be done by running e.g. `cd /Volumes/boot && touch ssh`.
 
-**NOTE:** SSH works as expected in older versions of PiBakery that include the Raspbian image. PiBakery 2.0+ allows you to bring your own Raspbian image, which is modified as previously described.
+**NOTE:** SSH works as expected in older versions of PiBakery - the ones that include the Raspbian image. PiBakery 2.0+ allows you to bring your own Raspbian image, which is modified as previously described for SSH access.
 
 ### WiFi Setup
 
