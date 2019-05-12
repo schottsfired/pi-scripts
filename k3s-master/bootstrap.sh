@@ -25,3 +25,6 @@ kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/maste
 
 logger Install ConfigMap for MetalLB...
 kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/master/manifests/metallb-layer2-config.yaml
+
+logger Install a simple Service
+kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/master/manifests/trivial-service.yaml
