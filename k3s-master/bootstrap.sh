@@ -17,7 +17,7 @@ static domain_name_servers=10.0.1.1
 EOT
 
 logger Installing k3s...
-curl -sfL https://get.k3s.io | sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy=servicelb" sh -
 echo 'alias k="k3s kubectl"' >> ~/.bash_profile
 
 logger Install MetalLB...
