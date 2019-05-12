@@ -6,25 +6,33 @@ The scripts in this repo are used to automate the installation of http://k3s.io 
 
 ### Overview
 
-PiBakery (https://www.pibakery.org/) is used to automate the process of creating custom boot images. This allows you to create a fully automated headless setup. Just plug in your pi and log in a few minutes later!
+PiBakery (https://github.com/davidferguson/pibakery/releases) is used to automate the process of creating custom boot images. This allows you to create a fully automated headless setup. Just plug in your pi and log in a few minutes later!
 
 Here is my configuration:
 
 ![PiBakery Configuration](images/pibakery-k3s-master.png?raw=true "PiBakery Configuration")
   
-Long bash scripts do not work well in PiBakery, so it may be helpful to create a single **Run Command** to boot from GitHub:
+It may be helpful to create a single **Run Command** to boot from GitHub:
 
 `curl -sfL https://raw.githubusercontent.com/schottsfired/pi-scripts/master/k3s-master/bootstrap.sh | sh -`
+
+This lets you modify your boot script more freely, without any changes to PiBakery.
 
 ### Logs
 
 PiBakery logs are located at `/boot/PiBakery/firstboot.log`.
 
-### Bugs
+### SSH
 
-If your **Run Command** is not working, it may be due to the fact that the WiFi setup block didn't complete successfully or isn't ready. You can either build PiBakery from source (which does not seem to work on OSX), or modify files directly under `Macintosh HD⁩ ▸ ⁨Applications⁩ ▸ ⁨PiBakery.app⁩ ▸ ⁨Contents⁩ ▸ ⁨Resources⁩ ▸ ⁨app⁩ ▸ ⁨pibakery-blocks⁩`. 
+SSH is disabled by default in newer versions of Raspbian. To enable it, open your Raspian `.img` file and create an `ssh` file at the root of the disk image. This can be done in one command with `cd /Volumes/boot && touch ssh`.
 
-My `/wifisetup/wifiConnect.py` was edited as follows:
+**NOTE:** SSH works as expected in older versions of PiBakery that include the Raspbian image. PiBakery 2.0+ allows you to bring your own Raspbian image, which is modified as previously described.
+
+### WiFi Setup
+
+If your **Run Command** isn't working, it may be due to the fact that the WiFi setup block didn't complete successfully or isn't ready. You can modify scripts directly under `Macintosh HD⁩ ▸ ⁨Applications⁩ ▸ ⁨PiBakery.app⁩ ▸ ⁨Contents⁩ ▸ ⁨Resources⁩ ▸ ⁨app⁩ ▸ ⁨pibakery-blocks⁩`.
+
+My `/wifisetup/wifiConnect.py` was modified as follows:
 
 ```
 os.system("wpa_cli -i wlan0 reconfigure")
