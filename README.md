@@ -20,8 +20,6 @@ Long bash scripts do not work well in PiBakery, so it may be helpful to create a
 
 PiBakery logs are located at `/boot/PiBakery/firstboot.log`.
 
-The bootstrap script logs messages to `/var/log/syslog`.
-
 ### Bugs
 
 If your **Run Command** is not working, it may be due to the fact that the WiFi setup block didn't complete successfully or isn't ready. You can either build PiBakery from source (which does not seem to work on OSX), or modify files directly under `Macintosh HD⁩ ▸ ⁨Applications⁩ ▸ ⁨PiBakery.app⁩ ▸ ⁨Contents⁩ ▸ ⁨Resources⁩ ▸ ⁨app⁩ ▸ ⁨pibakery-blocks⁩`. 
