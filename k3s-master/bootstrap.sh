@@ -20,11 +20,22 @@ logger Installing k3s...
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy=servicelb" sh -
 echo 'alias k="k3s kubectl"' >> ~/.bash_profile
 
+logger Waiting for kubectl to be ready...
+until kubectl
+do
+    logger kubectl not ready...
+    sleep 1
+done
+
 logger Install MetalLB...
 kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/master/manifests/metallb.yaml
 
+sleep 30
+
 logger Install ConfigMap for MetalLB...
 kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/master/manifests/metallb-layer2-config.yaml
+
+sleep 30
 
 logger Install a simple Service
 kubectl apply -f https://raw.githubusercontent.com/schottsfired/pi-scripts/master/manifests/trivial-service.yaml
