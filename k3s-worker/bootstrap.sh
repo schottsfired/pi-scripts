@@ -3,7 +3,7 @@ set -e
 
 echo Updating packages and upgrading OS...
 apt-get update
-apt-get --fix-broken --assume-yes upgrade
+apt-get --fix-broken --fix-missing --assume-yes upgrade
 
 echo Enabling cgroups...
 sed -i 's/rootwait/cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory rootwait/g' /boot/cmdline.txt
