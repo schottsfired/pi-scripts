@@ -16,9 +16,6 @@ static routers=10.0.1.1
 static domain_name_servers=10.0.1.1
 EOT
 
-echo Disabling GUI-based getting started wizard...
-rm /etc/xdg/autostart/piwiz.desktop
-
 echo Installing 3.5 inch LCD screen (requires restart)...
 git clone https://github.com/goodtft/LCD-show /home/pi/LCD-show
 cd /home/pi && source /home/pi/LCD-show/LCD35-show
