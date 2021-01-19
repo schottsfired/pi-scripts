@@ -40,5 +40,3 @@ time.sleep(5)
 os.system("systemctl restart dhcpcd")
 time.sleep(5)
 ```
-
-
